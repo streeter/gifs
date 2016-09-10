@@ -51,6 +51,17 @@
       togglePreviewBackground();
     };
 
+    function clickListener(evt) {
+      // Block clicking on mobile
+      if (!(evt.metaKey || evt.ctlKey || evt.altKey)) {
+        evt.preventDefault();
+
+        preview.src = evt.target.href;
+
+        togglePreviewBackground();
+      }
+    }
+
     function createCategoryListNode(ulNode, name) {
       var liNode = document.createElement('li'),
         categoryULNode = document.createElement('ul');
@@ -97,6 +108,7 @@
     var links = document.getElementsByClassName("gif");
     for (var i = 0; i < links.length; i++) {
       links[i].addEventListener("mouseover", hoverListener);
+      links[i].addEventListener("click", clickListener);
     }
 
     var originalTitle = document.title;
