@@ -68,7 +68,7 @@
 
       liNode.setAttribute('class', 'category-group');
       liNode.setAttribute('data-title', name);
-      liNode.innerHTML = name;
+      liNode.innerHTML = name.replace(/[\-_]/, ' ');
       liNode.appendChild(categoryULNode);
 
       ulNode.appendChild(liNode);
