@@ -44,7 +44,7 @@ dirs.each do |dir|
 end
 
 # Sort the files
-files.sort! { |a,b| a[:path] <=> b[:path] }
+files.sort_by! { |e| [e['path'].downcase, e['category'].downcase] }
 
 FileUtils.mkdir_p("_data") unless File.directory?("_data")
 FileUtils.mkdir_p("_includes") unless File.directory?("_includes")
